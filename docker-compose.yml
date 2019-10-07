@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  dprb:
+    container_name: dprb
+    image: ruby:2.6.5-buster
+    volumes:
+       - .:/app
+    working_dir: /app
+    tty: true
+    command: /bin/bash
