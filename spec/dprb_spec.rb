@@ -24,3 +24,14 @@ describe DPRB::Builder do
     expect(true).to eq(true)
   end
 end
+
+describe DPRB::Command do
+  it 'should work' do
+    save_button = DPRB::Command::SlickButton.new(DPRB::Command::SaveCommand.new)
+
+    cmds = DPRB::Command::CompositeCommand.new
+    cmds.add_command(DPRB::Command::CreateFile.new('file1.txt', "hello world\n"))
+    cmds.add_command(DPRB::Command::CopyFile.new('file1.txt', 'file2.txt'))
+    cmds.add_command(DPRB::Command::DeleteFile.new('file1.txt'))
+  end
+end
