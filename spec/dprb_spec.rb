@@ -40,3 +40,14 @@ describe DPRB::Composite do
     make_cake_task.get_time_required
   end
 end
+
+describe DPRB::Decorator do
+  it 'should work' do
+    File.stub(:open)
+      .with('final.txt', 'w')
+      .and_return(StringIO.new('', 'w'))
+
+    writer = DPRB::Decorator::NumberingWriter.new(DPRB::Decorator::SimpleWriter.new('final.txt'))
+    writer.write_line('Hello out there')
+  end
+end
