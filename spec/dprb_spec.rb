@@ -10,7 +10,6 @@ describe DPRB::Adapter do
     reader = DPRB::Adapter::StringIOAdapter.new('We attack at down')
     writer = File.open('out.txt', 'w')
     encrypter.encrypt(reader, writer)
-    expect(true).to eq(true)
   end
 end
 
@@ -21,7 +20,6 @@ describe DPRB::Builder do
     builder.add_cd(true)
     builder.add_dvd
     builder.add_hard_disk(100000)
-    expect(true).to eq(true)
   end
 end
 
@@ -33,5 +31,12 @@ describe DPRB::Command do
     cmds.add_command(DPRB::Command::CreateFile.new('file1.txt', "hello world\n"))
     cmds.add_command(DPRB::Command::CopyFile.new('file1.txt', 'file2.txt'))
     cmds.add_command(DPRB::Command::DeleteFile.new('file1.txt'))
+  end
+end
+
+describe DPRB::Composite do
+  it 'should work' do
+    make_cake_task = DPRB::Composite::MakeCakeTask.new
+    make_cake_task.get_time_required
   end
 end
