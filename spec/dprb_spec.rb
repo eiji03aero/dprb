@@ -71,3 +71,11 @@ describe DPRB::Interpreter do
     # big_or_mp3s = big_or_mp3_expr.evaluate('test_dir')
   end
 end
+
+describe DPRB::Iterator do
+  my_portfolio = DPRB::Iterator::Portfolio.new
+  my_portfolio.add_account(DPRB::Iterator::Account.new('hoge', 20))
+  my_portfolio.add_account(DPRB::Iterator::Account.new('uga', 37))
+  my_portfolio.add_account(DPRB::Iterator::Account.new('awef', 18))
+  my_portfolio.any? {|account| account.balance > 2000}
+end
