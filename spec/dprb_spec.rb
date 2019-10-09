@@ -51,3 +51,10 @@ describe DPRB::Decorator do
     writer.write_line('Hello out there')
   end
 end
+
+describe DPRB::Factory do
+  it 'should work' do
+    pond = DPRB::Factory::FrogPond.new(3)
+    pond.simulate_one_day
+  end
+end
