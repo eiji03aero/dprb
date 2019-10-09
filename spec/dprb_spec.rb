@@ -58,3 +58,16 @@ describe DPRB::Factory do
     pond.simulate_one_day
   end
 end
+
+describe DPRB::Interpreter do
+  it 'should work' do
+    # expr_all = DPRB::Interpreter::All.new
+    # files = expr_all.evaluate('test_dir')
+
+    # expr_not_writable = DPRB::Interpreter::Not.new(DPRB::Interpreter::Writable.new)
+    # readonly_files = expr_not_writable.evaluate('test_dir')
+
+    # big_or_mp3_expr = Or.new( Bigger.new(1024), FileName.new('*.mp3') )
+    # big_or_mp3s = big_or_mp3_expr.evaluate('test_dir')
+  end
+end
