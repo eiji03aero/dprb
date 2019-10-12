@@ -111,3 +111,12 @@ describe DPRB::Proxy do
     virtual_account = DPRB::Proxy::VirtualAccountProxy.new(100)
   end
 end
+
+describe DPRB::Singleton do
+  it 'should work' do
+    File.stub(:open)
+      .with('out.txt', 'w')
+      .and_return(StringIO.new('', 'w'))
+    instance = DPRB::Singleton::SimpleLogger.instance
+  end
+end
