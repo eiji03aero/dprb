@@ -89,3 +89,17 @@ describe DPRB::MetaProgramming do
     se_jungle.add_sub_population(tony_tiger)
   end
 end
+
+describe DPRB::Observer do
+  it 'should work' do
+    fred = DPRB::Observer::Employee.new('Fred', 'Crane Operator', 30000.0)
+
+    payroll = DPRB::Observer::Payroll.new
+    fred.add_observer(payroll)
+
+    tax_man = DPRB::Observer::TaxMan.new
+    fred.add_observer(tax_man)
+
+    fred.salary = 3000.0
+  end
+end
