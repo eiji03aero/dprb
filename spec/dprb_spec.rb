@@ -73,9 +73,19 @@ describe DPRB::Interpreter do
 end
 
 describe DPRB::Iterator do
-  my_portfolio = DPRB::Iterator::Portfolio.new
-  my_portfolio.add_account(DPRB::Iterator::Account.new('hoge', 20))
-  my_portfolio.add_account(DPRB::Iterator::Account.new('uga', 37))
-  my_portfolio.add_account(DPRB::Iterator::Account.new('awef', 18))
-  my_portfolio.any? {|account| account.balance > 2000}
+  it 'should work' do
+    my_portfolio = DPRB::Iterator::Portfolio.new
+    my_portfolio.add_account(DPRB::Iterator::Account.new('hoge', 20))
+    my_portfolio.add_account(DPRB::Iterator::Account.new('uga', 37))
+    my_portfolio.add_account(DPRB::Iterator::Account.new('awef', 18))
+    my_portfolio.any? {|account| account.balance > 2000}
+  end
+end
+
+describe DPRB::MetaProgramming do
+  it 'should work' do
+    tony_tiger = DPRB::MetaProgramming::Tiger.new('tony')
+    se_jungle = DPRB::MetaProgramming::Jungle.new('southeastern jungle tigers')
+    se_jungle.add_sub_population(tony_tiger)
+  end
 end
