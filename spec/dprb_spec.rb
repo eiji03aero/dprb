@@ -103,3 +103,11 @@ describe DPRB::Observer do
     fred.salary = 3000.0
   end
 end
+
+describe DPRB::Proxy do
+  it 'should work' do
+    account = DPRB::Proxy::BankAccount.new(100)
+    protected_account = DPRB::Proxy::AccountProtectionProxy.new(account, 'domo')
+    virtual_account = DPRB::Proxy::VirtualAccountProxy.new(100)
+  end
+end
