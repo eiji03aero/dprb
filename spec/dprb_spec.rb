@@ -129,3 +129,10 @@ describe DPRB::Strategy do
     report.output_report
   end
 end
+
+describe DPRB::TemplateMethod do
+  it 'should work' do
+    report = DPRB::TemplateMethod::PlainTextReport.new
+    report.output_report
+  end
+end
