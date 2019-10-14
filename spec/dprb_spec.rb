@@ -120,3 +120,12 @@ describe DPRB::Singleton do
     instance = DPRB::Singleton::SimpleLogger.instance
   end
 end
+
+describe DPRB::Strategy do
+  it 'should work' do
+    report = DPRB::Strategy::Report.new(DPRB::Strategy::HTMLFormatter.new)
+    report.output_report
+    report.formatter = DPRB::Strategy::PlainTextFormatter.new
+    report.output_report
+  end
+end
